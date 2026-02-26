@@ -1,0 +1,11 @@
+{
+  "name": "my_screensaver",
+  "main": "screensaver.html",
+  "window": {
+    "title": "My Screensaver",
+    "fullscreen": true,
+    "frame": false,
+    "toolbar": false,
+    "always_on_top": true
+  }
+}

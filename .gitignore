@@ -1,0 +1,10 @@
+# Ignore the NWJS binaries and build files
+*.exe
+*.scr
+*.nw
+nwjs-*/
+*.zip
+
+# System junk
+.DS_Store
+Thumbs.db
