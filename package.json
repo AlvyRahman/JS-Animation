@@ -1,11 +1,13 @@
 {
-  "name": "my_screensaver",
-  "main": "screensaver.html",
+  "name": "js_animation_engine",
+  "version": "1.0.0",
+  "description": "A lightweight JavaScript engine for 3D point projection and animations.",
+  "main": "index.html",
   "window": {
-    "title": "My Screensaver",
-    "fullscreen": true,
-    "frame": false,
+    "title": "JS Animation",
+    "fullscreen": false,
+    "frame": true,
     "toolbar": false,
-    "always_on_top": true
+    "always_on_top": false
   }
 }

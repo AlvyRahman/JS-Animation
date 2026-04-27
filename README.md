@@ -1,16 +1,21 @@
-# JS Screensaver Animation
+# Simple JS Animation Engine
 
-A minimalist animation built with JavaScript and HTML5 Canvas
+A lightweight, high-performance animation engine built with JavaScript and HTML5 Canvas. This project focuses on **3D point projection** and **dynamic line rendering** in a 2D space.
+
+## ✨ Features
+* **3D to 2D Projection:** Maps 3D coordinates $(x, y, z)$ to a 2D screen using perspective division.
+* **Responsive Canvas:** Automatically adapts to window resizing while maintaining the projection aspect ratio.
+* **Low-Level Control:** Pure JavaScript implementation without external heavy libraries.
 
 ## 🚀 How to Run
-1. Download [NW.js](https://nwjs.io/). // you can use any JS application runtime 
-2. Drag this folder onto `nw.exe`.
+Simply open `index.html` in any modern web browser.
 
-## 🛠️ How to Build (.scr)
-To turn this into a Windows Screensaver:
-1. Zip `package.json`, `screensaver.html`, and `screensaver.js` into `app.nw`.
-2. Run: `cmd /c "copy /b nw.exe+app.nw MyScreensaver.scr"`
-3. Place the `.scr` in the NW.js folder and right-click **Install**.
+## ⚙️ Customization
+You can modify the points and animation behavior directly in `animation.js`:
+
+* **Modify Points:** Update the `points` array to create different shapes (cubes, pyramids, etc.).
+* **Change Speed:** Adjust the `fps` and `dt` (delta time) variables to speed up or slow down the motion.
+* **Line Logic:** Use the `ctx.lineTo()` method within the `frame()` loop to connect your projected points.
 
 ## 📄 License
 MIT
