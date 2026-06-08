@@ -3,29 +3,27 @@ const FOREGROUND = "green";
 
 const game = document.getElementById("game");
 
-function resize() {
+function resizeCanvas() {
     game.width = window.innerWidth;
     game.height = window.innerHeight;
 }
 
-resize();
-window.addEventListener("resize", resize);
+resizeCanvas(); // Initial resize - to set the canvas dimensions to the current window size
+
+window.addEventListener("resize", resizeCanvas); // dynamically resizes the canvas after window resolution changes
 
 const ctx = game.getContext("2d");
-console.log(game.width, game.height);
 
-function clear() {
-    // the border
+function clearCanvas() {
     ctx.fillStyle = BACKGROUND;
-    ctx.fillRect(0, 0, game.width, game.height);
+    ctx.fillRect(0, 0, game.width, game.height); // fills the whole canvas with fillStyle color
 }
 
-function point({ x, y }) {
-    //draw a point inside the canvas
-    //alert(x)
-    const s = 10;
+function drawPoint({ x, y }) {
+    const pointSize = 10;
+    
     ctx.fillStyle = FOREGROUND;
-    ctx.fillRect(x - s / 2, y - s / 2, s, s);
+    ctx.fillRect(x - pointSize / 2, y - pointSize / 2, pointSize, pointSize);
 }
 
 function screen(p) {
@@ -68,10 +66,10 @@ let dz = 1;
 function frame() {
     const dt = 1 / fps;
     dz += 1 * dt;
-    clear();
+    clearCanvas();
 
     for (const p of points) {
-        point(screen(project(translate_z(p, dz))));
+        drawPoint(screen(project(translate_z(p, dz))));
     }
 
     //point(screen(project({x: 0.5, y: 0.5, z: 1 + dz})));
@@ -80,20 +78,3 @@ function frame() {
 }
 setTimeout(frame, 1000 / fps);
 
-// -- use this if you wanna close the windows upon user input
-//close the screensaver when the mouse moves
-/*
-let lastX, lastY;
-
-document.addEventListener("mousemove", e => {
-    if (lastX !== undefined) {
-        if (Math.abs(e.clientX - lastX) > 5 || Math.abs(e.clientY - lastY) > 5) {
-            window.close();
-        }
-    }
-    lastX = e.clientX;
-    lastY = e.clientY;
-});
-
-document.addEventListener("keydown", () => window.close());
-*/
